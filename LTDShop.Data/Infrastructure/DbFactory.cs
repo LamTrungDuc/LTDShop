@@ -9,7 +9,7 @@ namespace LTDShop.Data.Infrastructure
    public class DbFactory : Disposable, IDbFactory
     {
          LTDShopDbContext dbContext;
-
+        // kế thừa từ IDbFactory để tạo ra 1 đối tượng của dvContext
         public LTDShopDbContext Init()
         {
             return dbContext ?? (dbContext = new LTDShopDbContext());

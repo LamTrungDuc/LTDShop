@@ -14,6 +14,7 @@ namespace LTDShop.Data
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
+        //Cấu hình các thuộc tính DbSet tương ứng với các bảng 
         public DbSet<Footer> Footers { set; get; }
         public DbSet<Menu> Menus { set; get; }
         public DbSet<MenuGroup> MenuGroups { set; get; }
