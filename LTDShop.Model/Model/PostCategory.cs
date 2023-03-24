@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace LTDShop.Model.Model
 {
-   public class PostCategory :Auditable
+    [Table("PostCategories")]
+    public class PostCategory :Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -10,6 +10,7 @@ namespace LTDShop.Model.Asbtract
    public abstract class Auditable :IAuditable
     {
      public DateTime? CreateDate { set; get; }
+        
         [MaxLength(256)]
      public   string CreatedBy { set; get; }
 
@@ -19,6 +20,7 @@ namespace LTDShop.Model.Asbtract
 
         [MaxLength(256)]
         public string MetaKeyword { set; get; }
+       
         [MaxLength(256)]
         public string MetaDescription { set; get; }
 

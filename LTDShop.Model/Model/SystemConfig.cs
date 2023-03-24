@@ -13,9 +13,9 @@ namespace LTDShop.Model.Model
     {
         [Key]
         public int ID { set; get; }
-        [Required]
-        [MaxLength(50)]
+        [Required]       
         [Column(TypeName ="Varchar")]
+        [MaxLength(50)]
         public string Code { set; get; }
         [MaxLength(50)]
         public string ValueString { set; get; }

@@ -18,6 +18,7 @@ namespace LTDShop.Model.Model
         [Required]
         [MaxLength(50)]
         public string Name { set; get; }
+
         //Khoa ngoai liên kết với menu 
         public virtual IEnumerable<Menu> Menus { set; get; }
     }

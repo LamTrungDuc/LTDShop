@@ -15,6 +15,7 @@ namespace LTDShop.Model.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
+
         [Required]
         [MaxLength(256)]
         public string CustomerName { set; get; }
@@ -25,24 +26,24 @@ namespace LTDShop.Model.Model
         [MaxLength(256)]
         public string CustomerEmail { set; get; }
         [Required]
-        [MaxLength(256)]
+        [MaxLength(50)]
         public string CustomerMobile { set; get; }
         [Required]
         [MaxLength(256)]
         public string CustomerMessage { set; get; }
-        [Required]
+        
         [MaxLength(256)]
         public string PaymentMethod { set; get; }
-        [Required]
-        [MaxLength(256)]
+        
+        
         public DateTime? CreatedDate { set; get; }
         public string CreatedBy { set; get; }
         
         public string PaymentStatus { set; get;}
         
         public bool Status { set; get; }
-        [ForeignKey("")]
-        public virtual OrdersDetails OrdersDetails { set; get; }
+      
+        public virtual IEnumerable<OrdersDetails> OrdersDetails { set; get; }
 
     }
 }

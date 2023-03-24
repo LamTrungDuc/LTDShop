@@ -26,6 +26,8 @@ namespace LTDShop.Model.Model
         [MaxLength(256)]
         public string URL { set; get; }
         public int? DisplayOders { set; get; }
+
         public bool Status { set; get; }
+        public string Content { set; get; }
     }
 }

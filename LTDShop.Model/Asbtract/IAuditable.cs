@@ -16,5 +16,6 @@ namespace LTDShop.Model.Asbtract
         string MetaDescription { set; get; }
         bool Status { set; get; }
 
+
     }
 }
