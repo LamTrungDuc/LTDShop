@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace LTDShop.Data.Repositories
 {
-    public interface IPageRepository : IRepository<Page>
+    public interface IMenuGroupRepository : IRepository<MenuGroup>
     {
 
     }
-    public class PageRepository : RepositoryBase<Page> ,IPageRepository
+    public class MenuGroupRepository : RepositoryBase<MenuGroup>, IMenuGroupRepository
     {
-        public PageRepository(IDbFactory dbFactory) : base(dbFactory)
+        public MenuGroupRepository(IDbFactory dbFactory) : base(dbFactory)
         {
 
-        }
+        } 
     }
 }
+

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace LTDShop.Data.Repositories
 {
-    public interface IPageRepository : IRepository<Page>
-    {
+    public interface IFooterRepository : IRepository<Footer>
+    { 
 
     }
-    public class PageRepository : RepositoryBase<Page> ,IPageRepository
+    public class FooterRepository :RepositoryBase<Footer> ,IFooterRepository
     {
-        public PageRepository(IDbFactory dbFactory) : base(dbFactory)
+        public FooterRepository(IDbFactory dbFactory) : base(dbFactory)
         {
 
         }
