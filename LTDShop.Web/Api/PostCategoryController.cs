@@ -15,45 +15,45 @@ namespace LTDShop.Web.Api
     {
         IPostCategoryService _postCategoryService;
 
-        public PostCategoryController(IErrorService errorService , IPostCategoryService postCategoryService) :base(errorService)
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
+            base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
+
         [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
-              
-                    var listCategory = _postCategoryService.GetAll();
+                var listCategory = _postCategoryService.GetAll();
 
-                    HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-              
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
+
                 return response;
             });
         }
-        [Route("add")]
-        public HttpResponseMessage Post(HttpRequestMessage request,PostCategory postCategory)
+
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
         {
             return CreateHttpResponse(request, () =>
-             {
-                 HttpResponseMessage response = null;
+            {
+                HttpResponseMessage response = null;
+                if (ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var category = _postCategoryService.Add(postCategory);
+                    _postCategoryService.Save();
 
-                 if (!ModelState.IsValid)
-                 {
-                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                 }
-                 else
-                 {
+                    response = request.CreateResponse(HttpStatusCode.Created, category);
 
-                     var category = _postCategoryService.Add(postCategory);
-                     _postCategoryService.Save();
-
-
-                     response = request.CreateResponse(HttpStatusCode.Created, category);
-                 }
-                 return response;
-             });
+                }
+                return response;
+            });
         }
 
         public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
@@ -61,46 +61,41 @@ namespace LTDShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
-
-                    _postCategoryService.Update(postCategory);  
+                    _postCategoryService.Update(postCategory);
                     _postCategoryService.Save();
 
-
                     response = request.CreateResponse(HttpStatusCode.OK);
+
                 }
                 return response;
             });
         }
-       
+
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
-
-                   _postCategoryService.Delete(id);
+                    _postCategoryService.Delete(id);
                     _postCategoryService.Save();
 
+                    response = request.CreateResponse(HttpStatusCode.OK);
 
-                    response = request.CreateResponse(HttpStatusCode.Created);
                 }
                 return response;
             });
         }
-
     }
 }
