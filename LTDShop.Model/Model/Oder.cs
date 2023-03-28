@@ -34,8 +34,7 @@ namespace LTDShop.Model.Model
         
         [MaxLength(256)]
         public string PaymentMethod { set; get; }
-        
-        
+       
         public DateTime? CreatedDate { set; get; }
         public string CreatedBy { set; get; }
         

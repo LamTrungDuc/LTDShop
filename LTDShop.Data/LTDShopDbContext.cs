@@ -33,6 +33,8 @@ namespace LTDShop.Data
         public DbSet<Tag> tags { set; get; }
         public DbSet<VisitedStatistic> visitedStatistics { set; get; }
 
+        public DbSet<Error> Errors { set; get; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
