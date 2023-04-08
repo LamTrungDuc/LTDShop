@@ -15,9 +15,11 @@ namespace LTDShop.Model.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { set; get; }
+        
         [Required]
         [MaxLength(256)]
         public string Name { set; get; }
+
         [Column(TypeName ="Varchar")]
         [MaxLength(256)]
         [Required]

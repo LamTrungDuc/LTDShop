@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 namespace LTDShop.Model.Model
 {
     [Table("Footers")]
-   public class Footer
+    public class Footer
     {
-
         [Key]
         [MaxLength(50)]
         public string ID { set; get; }

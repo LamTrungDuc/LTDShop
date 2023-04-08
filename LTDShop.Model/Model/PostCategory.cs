@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace LTDShop.Model.Model
 {
-   public class PostCategory :Auditable
+    [Table("PostCategories")]
+    public class PostCategory :Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,7 +25,6 @@ namespace LTDShop.Model.Model
         [Required]
         [MaxLength(500)]
         public string Description { set; get; }
-
         public int? ParentID { set; get; }
         public int? DisplayOrder { set; get; }
         [MaxLength(256)]
