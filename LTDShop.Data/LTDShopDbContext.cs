@@ -1,4 +1,5 @@
 ﻿using LTDShop.Model.Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LTDShop.Data
 {
-   public class LTDShopDbContext : DbContext
+   public class LTDShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public LTDShopDbContext() : base("LTDShopConnection")
         {
@@ -35,10 +36,14 @@ namespace LTDShop.Data
 
         public DbSet<Error> Errors { set; get; }
 
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public static LTDShopDbContext Create()
         {
-            
+            return new LTDShopDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder Builder)
+        {
+            Builder.Entity<IdentityUserRole>().HasKey(i =>new { i.UserId,i.RoleId });
+            Builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
