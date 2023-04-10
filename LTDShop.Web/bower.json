@@ -1,4 +1,5 @@
-{
+﻿{
+  // file này dùng để định nghĩa các "dependencies":
   "name": "ASP.NET",
   "private": true,
   "dependencies": {

@@ -1,3 +1,4 @@
-{
-    "directory": "Scripts/plugins"
+﻿{
+  // dùng để định nghĩa thư mục muốn get thư viện về chỗ lưu trữ   
+  "directory": "Scripts/plugins"
 }
