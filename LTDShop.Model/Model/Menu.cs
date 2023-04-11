@@ -27,8 +27,8 @@ namespace LTDShop.Model.Model
 
         [Required]
         public int GroupID { set; get; }
-
-        [ForeignKey("GroupID")]
+        // tạo khóa ngoại trỏ đến MenuGroup , láy 
+        [ForeignKey("GroupID")] // đặt thuộc tính tên trường GroupID để GroupID trỏ đến ID của table class MenuGroup
         public virtual MenuGroup MenuGroup { set; get; }
 
         [MaxLength(10)]

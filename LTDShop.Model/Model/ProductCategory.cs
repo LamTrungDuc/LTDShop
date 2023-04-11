@@ -13,7 +13,7 @@ namespace LTDShop.Model.Model
    public class ProductCategory : Auditable
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // thuộc tính dùng để chỉ ra id tự tăng 
         public int ID { set; get; }
         [Required]
         [MaxLength(256)]
